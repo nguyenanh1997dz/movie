@@ -14,7 +14,7 @@ import Loader from "../Components/Loader";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import Pagination from "../Components/Pagination";
-
+import { RiMovie2Line } from "react-icons/ri";
 
 
 const Movies = () => {
@@ -24,7 +24,7 @@ const Movies = () => {
   const [times, setTimes] = useState(TimesData[0]);
   const [rates, setRates] = useState(RatesData[0]);
   const [language, setLanguage] = useState(LanguageData[0]);
-
+  const [page, setPage] = useState(1);
   const queries = useMemo(() => {
     const query = {
       category: category?.title === "All Categories" ? "" : category?.title,
@@ -33,9 +33,10 @@ const Movies = () => {
       rate: rates?.title.replace(/\D/g, ""),
       year: year?.title.replace(/\D/g, ""),
       search: search || "",
+      page: page || 1,
     };
     return query;
-  }, [category, times, language, rates, year, search]);
+  }, [category, times, language, rates, year, search,page]);
 
   const datas = {
     category,
@@ -51,7 +52,7 @@ const Movies = () => {
   };
 
   const dispatch = useDispatch();
-  const { isError, isLoading, error, allMovies, moviesCount } = useSelector(
+  const { isError, isLoading, error, allMovies, moviesCount,totalPage } = useSelector(
     (state) => state.getAllMovies
   );
 
@@ -84,12 +85,13 @@ const Movies = () => {
         ) : (
           <div className="w-full gap  -6 flex-colo min-h-screen">
             <div className="w-24 h-24 p-5 rounded-full mb-4 bg-dry text-subMain text-4xl flex-colo">
-              <p className="text-border text-sm">No movies found</p>
+            <RiMovie2Line />
             </div>
+            <p className="text-border text-sm">No movies found</p>
           </div>
         )}
         <div className="w-full flex-colo md:my-20 my-10">
-          <Pagination></Pagination>
+          <Pagination setPage={setPage} totalPage={totalPage}></Pagination>
         </div>
       </div>
     </Layout>

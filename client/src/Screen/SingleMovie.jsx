@@ -18,6 +18,8 @@ const SingleMovie = () => {
   const { isLoading, isError, movie } = useSelector(
     (state) => state.getDetailsMovie
   );
+  const { allMovies } = useSelector((state) => state.getAllMovies);
+  const relatedMovie = allMovies?.filter((m) => m.category._id === movie?.category);
 const updateReview = () => {
   dispatch(getDetailsMovieAction(id));
 }
@@ -44,7 +46,7 @@ const updateReview = () => {
           <div className="container mx-auto min-h-screen px-2 my-6">
             <MovieCast cast={movie.casts} />
             <MovieReview updateMovie={updateReview} movie={movie} />
-            <MovieRelated />
+            <MovieRelated movies={relatedMovie}/>
           </div>
         </>
       ) }

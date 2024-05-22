@@ -22,16 +22,17 @@ const HomeScreen = () => {
     topRateMovies
   } = useSelector((state) => state.getTopRateMovies);
 
- 
-
   useEffect(() => {
     dispatch(getRandomMoviesAction());
     dispatch(getTopRateMoviesAction());
   }, [dispatch]);
 
   useEffect(() => {
-    if ( randomError  || topRateError) {
-      toast.error('Something went wrong!');
+    if ( randomError) {
+      dispatch({type:"GET_TOP_RATE_MOVIE_RESET"})
+    }
+    if (topRateError) {
+      dispatch({type:"GET_RANDOM_MOVIE_RESET"})
     }
   }, [randomError,topRateError]);
   return (

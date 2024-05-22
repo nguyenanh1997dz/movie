@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Loader from "../Loader";
 import { likeMovieFunc } from "../../Context/likeMoviesFunction";
 import { useDispatch, useSelector } from "react-redux";
+import { Empty } from "../Empty";
 
 const Banner = ({ movies, isLoading }) => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Banner = ({ movies, isLoading }) => {
         <div className={sameClass}>
           <Loader></Loader>
         </div>
-      ) : movies && (
+      ) : movies ? (
         <Swiper
           direction="vertical"
           spaceBetween={0}
@@ -61,6 +62,8 @@ const Banner = ({ movies, isLoading }) => {
             </SwiperSlide>
           ))}
         </Swiper>
+      ) : (
+        <Empty message="No movies"></Empty>
       )}
     </div>
   );

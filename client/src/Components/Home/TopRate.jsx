@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { FaHeart } from "react-icons/fa";
 import Loader from "../Loader";
+import { Empty } from "../Empty";
 
 const TopRate = ({ isLoading, movies }) => {
   const swiperRef = useRef();
@@ -24,7 +25,7 @@ const TopRate = ({ isLoading, movies }) => {
         <div className={sameClass}>
           <Loader></Loader>
         </div>
-      ) : movies && (
+      ) : movies ? (
         <div className="mt-10">
           <Swiper
             onBeforeInit={(swiper) => {
@@ -74,7 +75,7 @@ const TopRate = ({ isLoading, movies }) => {
                       to={`/movie/${movie._id}`}
                       className="font-semibold text-xl trancuted line-clamp-2"
                     >
-                   {movie.name}
+                      {movie.name}
                     </Link>
                   </div>
                 </div>
@@ -96,6 +97,8 @@ const TopRate = ({ isLoading, movies }) => {
             </button>
           </div>
         </div>
+      ) : (
+        <Empty></Empty>
       )}
     </div>
   );

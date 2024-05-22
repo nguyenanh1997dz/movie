@@ -36,7 +36,7 @@ const MovieInfo = ({ movie }) => {
                 <FlexMovieItem movie={movie}></FlexMovieItem>
               </div>
               <p className="text-text text-sm leading-7">
-              {movie?.decs}
+              {movie?.desc}
               </p>
               <div className="grid sm:grid-cols-5 grid-cols-3 gap-4 p-6 bg-main border border-gray-800 rounded-lg">
                 <div className="col-span-1 flex-colo border-r border-border">

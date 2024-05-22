@@ -87,7 +87,7 @@ const Footer = () => {
         ))}
         <div className="pb-3.5 sm:pb-0 col-span-1 md:col-span-2 lg:col-span-3">
           <Link to="/">
-            <img src="/images/logo.png" alt="logo" className="w-2/4 object-contain h-12" />
+            <img src="/images/logo2.jpg" alt="logo" className="w-2/4 object-contain h-12" />
           </Link>
           <p className="leading-7 text-sm text-border mt-3">
             <span>Adrew Road, Suite 200, <br /> New York, NY 1007</span>

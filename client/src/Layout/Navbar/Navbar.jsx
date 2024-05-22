@@ -33,7 +33,7 @@ const Navbar = () => {
           <div className="col-span-1 hidden lg:block">
             <Link to="/">
               <img
-                src="/images/logo.png"
+                src="/images/logo2.jpg"
                 alt="logo"
                 className="w-full h-12 object-contain"
               />
