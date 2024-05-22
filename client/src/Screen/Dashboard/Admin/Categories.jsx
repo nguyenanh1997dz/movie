@@ -10,6 +10,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import toast from "react-hot-toast";
 import Loader from "../../../Components/Loader";
 
+
 const Categories = () => {
   const [modalOpen,setModalOpen] = useState(false)
   const dispatch = useDispatch();

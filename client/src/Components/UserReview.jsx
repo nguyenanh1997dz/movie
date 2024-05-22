@@ -21,9 +21,12 @@ export const Message = ({ label, placeholder, name, register }) => {
           {...register}
           name={name}
         >
-          {options.map((o, i) => (
-            <option key={i} value={o.value}>
-              {o.title}
+          <option value="" disabled selected>
+          Select
+        </option>
+          {options.map((o) => (
+            <option key={o?._id} value={o?._id}>
+              {o?.name}
             </option>
           ))}
         </select>

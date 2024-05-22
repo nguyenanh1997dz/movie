@@ -24,24 +24,25 @@ const reviewSchema = new mongoose.Schema(
 const movieSchema = new mongoose.Schema(
   {
     name: String,
-    decs: String,
+    desc: String,
     titleImage: String,
     image: String,
     category: {
-        type: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
     },
     language: String,
     year: String,
-    time: String,
+    hour: String,
     video: String,
     rate:Number,
     reviews: [reviewSchema],
-    casts:[
+    casts: [
         {
-            type:String,
-            image: String,
+          name: String,
+          img: String,
         }
-    ],
+      ],
     countReviews: {
         type: Number,
         default:0

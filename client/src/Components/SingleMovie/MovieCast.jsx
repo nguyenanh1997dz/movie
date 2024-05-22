@@ -4,50 +4,6 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
-const Movies = [
-  {
-    src: "1.jpg",
-    name: "Phim số 1",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-  {
-    src: "1.jpg",
-    name: "Phim số 2",
-    category: "Hành động",
-    time: "2015",
-  },
-];
 const MovieCast = ({cast}) => {
   return (
     <>
@@ -63,15 +19,15 @@ const MovieCast = ({cast}) => {
           speed={1000}
           modules={[Autoplay, Navigation]}
         >
-          {Movies.map((movie, index) => (
-            <SwiperSlide key={index}>
+          {cast.map((cast) => (
+            <SwiperSlide key={cast?._id}>
               <div className="w-full p-3 italic text-xs text-text rounded flex-colo bg-dry border border-gray-800">
                 <img
-                  src={`/images/movies/${movie.src}`}
-                  alt=""
+                  src={cast?.img}
+                  alt="cast"
                   className="w-full h-64 object-cover rounded mb-4"
                 />
-                <p>Tom Cruise</p>
+                <p>{cast?.name}</p>
               </div>
             </SwiperSlide>
           ))}

@@ -16,4 +16,8 @@ const getTopRateMoviesService = async () => {
     const {data} = await Axios.get(`/movie/toprate`);
     return data
 };
-export { allMoviesService,getMovieByIdService,getRandomMoviesService,getTopRateMoviesService}
+const createMovieService = async (datas) => {
+    const {data} = await Axios.post(`/movie`,datas);
+    return data
+};
+export { allMoviesService,getMovieByIdService,getRandomMoviesService,getTopRateMoviesService,createMovieService}

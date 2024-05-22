@@ -8,4 +8,4 @@ const likeMovieFunc = (id,userInfo,dispatch) => {
     dispatch(likeMovieAction(id))
 }
 
-export {likeMovieFunc,isLikeMovie}
+export {likeMovieFunc}

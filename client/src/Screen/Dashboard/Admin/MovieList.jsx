@@ -6,6 +6,7 @@ import EditMovieModal from "../../../Components/Modal/EditMovieModal";
 import { getAllMoviesAction } from "../../../Redux/Action/movieAction";
 import Loader from "../../../Components/Loader";
 
+
 const MovieList = () => {
   const dispatch = useDispatch();
 
@@ -30,6 +31,7 @@ const MovieList = () => {
           {isLoading && <Loader></Loader>}
            {isSuccess && <Table admin={true} data={allMovies}></Table>} 
         </div>
+      
     </HomeAdmin>
   );
 };

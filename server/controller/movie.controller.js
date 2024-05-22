@@ -15,16 +15,16 @@ const getMovies = asyncHandler(async (req, res) => {
     if (language) query.language = language;
     if (year) query.year = year;
     if (rate) query.rate = rate;
-    if (time) query.time = time;
+    if (time) query.hour = time;
     if (search) query.name = { $regex: search, $options: "i" };
     const moviesCount = await Movie.countDocuments(query);
     if (moviesCount === 0) {
       return res.status(404).json({ message: "No data" });
     }
-    const limit = 5;
+    const limit = 8;
     const page = Number(req.query.page) || 1;
     const skip = (page - 1) * limit;
-    const movies = await Movie.find(query).skip(skip).limit(limit);
+    const movies = await Movie.find(query).skip(skip).limit(limit).populate('category');
     const totalPage = Math.ceil(moviesCount / limit);
     if (page > totalPage) {
       throw new HandleError(404, "Page Not Found");

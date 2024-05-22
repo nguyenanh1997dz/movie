@@ -49,7 +49,7 @@ const WatchMovie = () => {
           )}
           {play ? (
             <video controls autoPlay={play} className="w-full h-full rounded">
-              <source src="/video/1.mp4" type="video/mp4" title="movie" />
+              <source src={movie?.video} type="video/mp4" title="movie" />
             </video>
           ) : isLoading ? (
             <div className={sameClass}>

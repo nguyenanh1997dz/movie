@@ -42,7 +42,7 @@ const updateReview = () => {
         <>
           <MovieInfo movie={movie} />
           <div className="container mx-auto min-h-screen px-2 my-6">
-            <MovieCast cast={movie.cast} />
+            <MovieCast cast={movie.casts} />
             <MovieReview updateMovie={updateReview} movie={movie} />
             <MovieRelated />
           </div>

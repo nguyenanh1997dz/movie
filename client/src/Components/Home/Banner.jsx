@@ -29,7 +29,7 @@ const Banner = ({ movies, isLoading }) => {
           modules={[Autoplay]}
           className="w-full xl:h-96 bg-dry lg:h-64 h-48"
         >
-          {movies?.slice(0, 5).map((movie, index) => (
+          {movies?.slice(0, 3).map((movie, index) => (
             <SwiperSlide
               key={index}
               className="relative rounded overflow-hidden"

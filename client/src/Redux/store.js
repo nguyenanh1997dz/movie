@@ -21,7 +21,8 @@ import {
   getAllMoviesReducre,
   getDetailsMovieReducre,
   getRandomMoviesReducre,
-  getTopRateMoviesReducre
+  getTopRateMoviesReducre,
+  createMovieReducre
 } from "./Reducers/movieReducer";
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")
@@ -46,7 +47,7 @@ const rootReducer = combineReducers({
   adminDeleteCategories: adminDeleteCategoriesReducer,
   adminCreateCategory: adminCreateCategoryReducer,
   adminUpdateCategory: adminUpdateCategoryReducer,
-
+  createMovie:createMovieReducre
 });
 
 const initialState = {

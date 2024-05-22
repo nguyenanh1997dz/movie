@@ -2,7 +2,8 @@ import {
   allMoviesService,
   getMovieByIdService,
   getRandomMoviesService,
-  getTopRateMoviesService
+  getTopRateMoviesService,
+  createMovieService
 } from "../API/movieService";
 import * as movieConstants from "../Constants/movieContants";
 import { ErrorAction } from "../Protection";
@@ -52,4 +53,16 @@ const getTopRateMoviesAction = () => async (dispatch) => {
     ErrorAction(error, movieConstants.GET_TOP_RATE_MOVIE_FAILURE, dispatch);
   }
 };
-export { getAllMoviesAction, getDetailsMovieAction, getRandomMoviesAction,getTopRateMoviesAction };
+const createMovieAction = (data) => async (dispatch) => {
+  dispatch({ type: movieConstants.CREATE_MOVIE_REQUEST });
+  try {
+    const movie = await createMovieService(data);
+    dispatch({
+      type: movieConstants.CREATE_MOVIE_SUCCESS,
+      payload: movie,
+    });
+  } catch (error) {
+    ErrorAction(error, movieConstants.CREATE_MOVIE_FAILURE, dispatch);
+  }
+};
+export { getAllMoviesAction, getDetailsMovieAction, getRandomMoviesAction,getTopRateMoviesAction,createMovieAction };

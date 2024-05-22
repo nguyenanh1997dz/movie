@@ -114,9 +114,38 @@ const getTopRateMoviesReducre = (state = {}, action) => {
       return state;
   }
 };
+const createMovieReducre = (state = {}, action) => {
+  switch (action.type) {
+    case movieContants.CREATE_MOVIE_REQUEST:
+      return {
+        isLoading: true,
+        isSuccess: false,
+        isError: false,
+      };
+    case movieContants.CREATE_MOVIE_SUCCESS:
+      return {
+        isLoading: false,
+        isSuccess: true,
+        isError: false,
+        movie: action.payload,
+      };
+    case movieContants.CREATE_MOVIE_FAILURE:
+      return {
+        isLoading: false,
+        isSuccess: false,
+        isError: true,
+        error: action.payload,
+      };
+    case movieContants.CREATE_MOVIE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
 export {
     getAllMoviesReducre,
     getDetailsMovieReducre,
     getRandomMoviesReducre,
-    getTopRateMoviesReducre
+    getTopRateMoviesReducre,
+    createMovieReducre
 };

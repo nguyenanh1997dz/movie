@@ -14,10 +14,16 @@ const Upload = ({ setUrlImg }) => {
         "image/jpeg",
         "image/png",
         "image/webp",
+        "video/mp4",
+        "video/avi",
+        "video/mkv",
+        "video/mov",
+        "video/wmv",
+        "video/flv"
       ];
 
       if (!acceptFileTypes.includes(file?.type)) {
-        toast.error("Only .jpg, .jpeg, .png, and .webp files are accepted.");
+        toast.error("Only image and video files are accepted.");
         return;
       }
 
@@ -30,7 +36,7 @@ const Upload = ({ setUrlImg }) => {
       } catch (error) {
         toast.error("Something went wrong. Please try again.");
       } finally {
-        toast.success("Image uploaded successfully");
+        toast.success("Upload successfully");
         setLoading(false);
       }
     },
@@ -68,11 +74,8 @@ const Upload = ({ setUrlImg }) => {
               <IoCloudUploadSharp />
             </span>
             <p className="text-sm mt-2">
-              {isDragActive ? "Drop the image here" : "Drag your image here"}
+              {isDragActive ? "Drop the file here" : "Drag your file here"}
             </p>
-            <em className="text-xs text-border">
-              (only .jpg and .png files will be accepted)
-            </em>
           </>
         )}
       </div>

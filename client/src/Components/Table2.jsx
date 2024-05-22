@@ -4,13 +4,11 @@ import { FaRegEye } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import moment from "moment";
+
+import { shortUppercaseId,formatDate } from "../Context/libray";
 
 const Row2 = ({ data, admin , onEdit,onDelete}) => {
-  const formatDate = (dateString) => {
-    const formattedDate = moment(dateString).format("DD/MM/YYYY");
-    return formattedDate;
-  };
+
  
   return (
     <>
@@ -18,7 +16,7 @@ const Row2 = ({ data, admin , onEdit,onDelete}) => {
         data.map((row) => (
           <tr key={row?._id}>
             <td className="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">
-              {row?._id}
+              {shortUppercaseId(row?._id)}
             </td>
             <td className="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 ">
               {formatDate(row?.createdAt)}

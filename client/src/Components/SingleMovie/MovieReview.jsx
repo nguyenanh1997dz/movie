@@ -13,12 +13,12 @@ import Rating from "../Rating";
 import { createReviewAction } from "../../Redux/Action/userAction";
 import { Empty } from "../../Components/Empty";
 const Ratings = [
-  { title: "0-Poor", value: 0 },
-  { title: "1-Fair", value: 1 },
-  { title: "2-Good", value: 2 },
-  { title: "3-Very good", value: 3 },
-  { title: "4-Excellent", value: 4 },
-  { title: "5-Masterpice", value: 5 },
+  { name: "0-Poor", _id: 0 },
+  { name: "1-Fair", _id: 1 },
+  { name: "2-Good", _id: 2 },
+  { name: "3-Very good", _id: 3 },
+  { name: "4-Excellent", _id: 4 },
+  { name: "5-Masterpice", _id: 5 },
 ];
 
 const MovieReview = ({ movie ,updateMovie}) => {

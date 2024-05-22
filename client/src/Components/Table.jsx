@@ -4,17 +4,18 @@ import { FaRegEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 const Row = ({data, admin ,onDelete }) => {
+  console.log(data);
   const Text = "text-sm text-left leading-6 whitespace-nowrap px-5 py-3";
   return (
     <>
        {data.map(row=>
-      <tr key={row._id}>
+      <tr key={row?._id}>
       <td className={Text}>
         <div className="w-12 p-1 bg-dry border border-border h-12 rounded overflow-hidden">
           <img
             className="h-full w-full object-cover"
-            src={row.image}
-            alt={row.name}
+            src={row?.image}
+            alt={row?.name}
           />
         </div>
       </td>
@@ -22,7 +23,7 @@ const Row = ({data, admin ,onDelete }) => {
       {row?.name}
       </td>
       <td className={Text}>
-      {row?.category}
+      {row?.category.name}
       </td>
       <td className={Text}>
       {row?.language}
@@ -48,7 +49,7 @@ const Row = ({data, admin ,onDelete }) => {
             <button type="button" onClick={() => onDelete(row._id)} className="bg-subMain text-white rounded flex-colo w-8 h-8">
             <MdDelete />
             </button>
-            <Link to={`/movie/${row._id}`} className="bg-subMain text-white rounded flex-colo w-8 h-8">
+            <Link to={`/movie/${row?._id}`} className="bg-subMain text-white rounded flex-colo w-8 h-8">
               <FaRegEye />
             </Link>
           </>

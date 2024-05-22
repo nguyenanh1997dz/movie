@@ -54,11 +54,12 @@ const MovieValidation = Yup.object().shape({
   desc: Yup.string().required("Decs is required"),
   titleImage: Yup.string().required("Title Image is required"),
   image: Yup.string().required("Image is required"),
-  language: Yup.string().required("Category is required"),
-  year: Yup.string().required("Category is required"),
-  time: Yup.string().required("Category is required"),
-  casts: Yup.array().required("Cast is required"),
+  language: Yup.string().required("Language is required"),
+  year: Yup.string().required("Year is required"),
+  hour: Yup.string().required("Hour is required"),
+  video: Yup.string().required("Movie video is required"),
   category: Yup.string().required("Category is required"),
+  casts: Yup.array().required("Cast is required"),
 });
 
 const reviewsValidation = Yup.object().shape({
@@ -66,4 +67,7 @@ const reviewsValidation = Yup.object().shape({
   message: Yup.string().required("Message is required").min(5,"Enter a minimum of 5 characters."),
 
 });
+
+
+
 export { LoginValidation, RegisterValidation, ProfileValidation ,PasswordValidation ,CategoryValidation,MovieValidation,reviewsValidation};

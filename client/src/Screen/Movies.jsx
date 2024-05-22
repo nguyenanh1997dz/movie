@@ -13,6 +13,9 @@ import {
 import Loader from "../Components/Loader";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import Pagination from "../Components/Pagination";
+
+
 
 const Movies = () => {
   const { search } = useParams();
@@ -85,7 +88,9 @@ const Movies = () => {
             </div>
           </div>
         )}
-        <div className="w-full flex-colo md:my-20 my-10"></div>
+        <div className="w-full flex-colo md:my-20 my-10">
+          <Pagination></Pagination>
+        </div>
       </div>
     </Layout>
   );
